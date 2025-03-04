@@ -11,7 +11,7 @@ export const createCartRouter = (db: Database) => {
         await cartController.addToCart(req, res);
     }));
 
-    router.delete('/:id', asyncHandler(async (req, res) => {
+    router.delete('/delete', asyncHandler(async (req, res) => {
         await cartController.removeFromCart(req, res);
     }));
 

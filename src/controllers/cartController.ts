@@ -58,7 +58,7 @@ export class CartController {
       console.log(`productId ${productId}`)
 
       const result = await this.db.run(
-        'DELETE FROM cart_items WHERE product_id = ?',
+        'DELETE FROM cart_items WHERE id = ?',
         productId
       );
 

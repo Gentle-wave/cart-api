@@ -26,7 +26,7 @@ npm install
 npm run dev
 ```
 
-The server will start at `http://localhost:3000`
+The server will start at `http://localhost:4000`
 
 ### Production Build
 ```bash
@@ -37,7 +37,7 @@ npm start
 ## API Documentation
 
 ### Base URL
-`http://localhost:3000`
+`http://localhost:4000`
 
 ### Endpoints
 
@@ -46,7 +46,7 @@ npm start
   Get all products  
   Example:
   ```bash
-  curl http://localhost:3000/products
+  curl http://localhost:4000/products
   ```
 
 #### 2. Cart
@@ -55,28 +55,28 @@ npm start
   Required body: { "productId": number}  
   Example:
   ```bash
-  curl -X POST -H "Content-Type: application/json" -d '{"productId": 1}' http://localhost:3000/cart
+  curl -X POST -H "Content-Type: application/json" -d '{"productId": 1}' http://localhost:4000/cart
   ```
 
 - **DELETE /cart/:id**  
   Remove item from cart  
   Example:
   ```bash
-  curl -X DELETE http://localhost:3000/cart/1
+  curl -X DELETE http://localhost:4000/cart/1
   ```
 
 - **GET /cart**  
   Get all cart items with product details  
   Example:
   ```bash
-  curl http://localhost:3000/cart
+  curl http://localhost:4000/cart
   ```
 
 - **POST /cart/checkout**  
   Clear cart items (simulate checkout)  
   Example:
   ```bash
-  curl -X POST http://localhost:3000/cart/checkout
+  curl -X POST http://localhost:4000/cart/checkout
   ```
 
 ## Testing with Postman
@@ -86,7 +86,7 @@ npm start
    - Import into Postman
 
 2. Environment variables:
-   - Create an environment variable `base_url` with value `http://localhost:3000`
+   - Create an environment variable `base_url` with value `http://localhost:4000`
 
 3. Test endpoints using the provided collection
 
@@ -95,22 +95,22 @@ npm start
 ### Product Endpoints
 ```bash
 # Get all products
-curl http://localhost:3000/products
+curl http://localhost:4000/products
 ```
 
 ### Cart Endpoints
 ```bash
 # Add to cart
-curl -X POST -H "Content-Type: application/json" -d '{"productId": 1, "quantity": 2}' http://localhost:3000/cart
+curl -X POST -H "Content-Type: application/json" -d '{"productId": 1, "quantity": 2}' http://localhost:4000/cart
 
 # Get cart items
-curl http://localhost:3000/cart
+curl http://localhost:4000/cart
 
 # Remove item from cart
-curl -X DELETE http://localhost:3000/cart/1
+curl -X DELETE http://localhost:4000/cart/1
 
 # Checkout
-curl -X POST http://localhost:3000/cart/checkout
+curl -X POST http://localhost:4000/cart/checkout
 ```
 
 ## Database Structure

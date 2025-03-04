@@ -52,10 +52,10 @@ npm start
 #### 2. Cart
 - **POST /cart**  
   Add product to cart  
-  Required body: { "productId": number, "quantity": number }  
+  Required body: { "productId": number}  
   Example:
   ```bash
-  curl -X POST -H "Content-Type: application/json" -d '{"productId": 1, "quantity": 2}' http://localhost:3000/cart
+  curl -X POST -H "Content-Type: application/json" -d '{"productId": 1}' http://localhost:3000/cart
   ```
 
 - **DELETE /cart/:id**  
@@ -116,7 +116,7 @@ curl -X POST http://localhost:3000/cart/checkout
 ## Database Structure
 - **In-memory SQLite** (resets when server restarts)
 - **Tables**:
-  - `products` (pre-seeded with 3 sample products)
+  - `products` (pre-seeded with 12 sample products)
   - `cart_items` (stores cart entries with product references)
 
 ## Notes

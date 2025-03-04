@@ -55,7 +55,6 @@ export class CartController {
   public async removeFromCart(req: Request, res: Response): Promise<Response> {
     try {
       const { productId } = req.params;
-      console.log(`product ${productId}`)
 
       const result = await this.db.run(
         'DELETE FROM cart_items WHERE product_id = ?',

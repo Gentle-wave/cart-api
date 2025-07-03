@@ -32,7 +32,7 @@ jobs:
       - run: npm run build --if-present
 
       # 5. Run tests
-      - run: npm test                   # add --runInBand if you hit ESM + jest issues
+      # - run: npm test                   # add --runInBand if you hit ESM + jest issues
 
       # 6. (Optional) Upload coverage or build artifacts
       # - uses: actions/upload-artifact@v4

@@ -1,0 +1,41 @@
+name: Node.js CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build_and_test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node: [18.x, 20.x, 22.x]          # 22 is the current release, 20 is LTS
+
+    steps:
+      # 1. Check out code
+      - uses: actions/checkout@v4
+
+      # 2. Set up Node with built‑in dependency caching
+      - name: Use Node ${{ matrix.node }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+          cache: npm                     # caches ~/.npm and reuses between runs
+
+      # 3. Install
+      - run: npm ci
+
+      # 4. Type‑check / build (skip if no build script)
+      - run: npm run build --if-present
+
+      # 5. Run tests
+      - run: npm test                   # add --runInBand if you hit ESM + jest issues
+
+      # 6. (Optional) Upload coverage or build artifacts
+      # - uses: actions/upload-artifact@v4
+      #   with:
+      #     name: coverage
+      #     path: coverage/
